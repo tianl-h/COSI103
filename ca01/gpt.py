@@ -18,7 +18,6 @@ On Windows:
 % python gpt.py
 '''
 import openai
-openai.api_key = "your_openai_api_key"
 
 
 class GPT():
