@@ -50,12 +50,22 @@ class GPT():
         prompt = "Refactor the following Python program so that all functions have fewer than 5 lines of code:\n\n" + code
         return self.getResponse(prompt)
 
+    # created by Tianling Hou
+    def getString(self, text):
+        ''' Generate a GPT response with a given prompt '''
+        prompt = "Write a Python function that takes a string as input and returns the first 5 characters of the string. Then, provide an implementation of this function that meets the following criteria: \n\n"
+        '''eg. text:give some input and output as examples'''
+        full_prompt = prompt + text
+        return self.getResponse(full_prompt)
+
 if __name__=='__main__':
     '''// run bash secret.sh 'python3 gpt.py'
     '''
     import os
     g = GPT(os.environ.get("APIKEY"))
     # print(g.getResponse("what does openai's GPT stand for?"))
+
+     # the prompt for get_refactor()
     code = '''def my_function():
     print("This function has more than 5 lines of code.")
     print("This is another line of code.")
@@ -63,6 +73,11 @@ if __name__=='__main__':
     print("And another one.")
     print("And another one.")
     print("And yet another one.")'''
-    response = g.get_refactor(code)
+    # response = g.get_refactor(code)
+    # print(response)
+
+    # the prompt for getString()
+    text = "give some input and output as examples"
+    response = g.getString(text)
     print(response)
 

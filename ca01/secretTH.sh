@@ -1,2 +1,2 @@
-export APIKEY="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"
+export APIKEY="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"
 $1
