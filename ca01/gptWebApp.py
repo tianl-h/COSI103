@@ -38,7 +38,7 @@ def index():
     '''
 
 
-@app.route('/gptdemo', methods=['GET', 'POST'])
+@app.route('/form', methods=['GET', 'POST'])
 def gptdemo():
     ''' handle a get request by sending a form 
         and a post request by returning the GPT response
@@ -65,6 +65,15 @@ def gptdemo():
             <p><input type=submit value="get response">
         </form>
         '''
+
+@app.route('/about')
+def about():
+    return "<h1>The program is about....</h1>"
+    
+@app.route('/team')
+def team():
+    return "<h1>About out team....</h1>"    
+
 
 if __name__=='__main__':
     # run the code on port 5001, MacOS uses port 5000 for its own service :(
