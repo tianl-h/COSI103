@@ -44,11 +44,25 @@ class GPT():
 
         response = completion.choices[0].text
         return response
+    
+    def get_refactor(self, code):
+        ''' Generate a GPT response for code refactoring '''
+        prompt = "Refactor the following Python program so that all functions have fewer than 5 lines of code:\n\n" + code
+        return self.getResponse(prompt)
 
 if __name__=='__main__':
     '''// run bash secret.sh 'python3 gpt.py'
     '''
     import os
     g = GPT(os.environ.get("APIKEY"))
-    print(g.getResponse("what does openai's GPT stand for?"))
+    # print(g.getResponse("what does openai's GPT stand for?"))
+    code = '''def my_function():
+    print("This function has more than 5 lines of code.")
+    print("This is another line of code.")
+    print("And another one.")
+    print("And another one.")
+    print("And another one.")
+    print("And yet another one.")'''
+    response = g.get_refactor(code)
+    print(response)
 
