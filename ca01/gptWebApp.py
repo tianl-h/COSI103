@@ -34,11 +34,10 @@ def index():
     print('processing / route')
     return f'''
         <h1>GPT Demo</h1>
-        <a href="/gptdemo">Ask questions to GPT</a>
+        <a href="{url_for('gptdemo')}">Ask questions to GPT</a>
     '''
 
-
-@app.route('/form', methods=['GET', 'POST'])
+@app.route('/gptdemo', methods=['GET', 'POST'])
 def gptdemo():
     ''' handle a get request by sending a form 
         and a post request by returning the GPT response
@@ -76,5 +75,6 @@ def team():
 
 
 if __name__=='__main__':
+    # to run the program: bash secretINITIAL.sh 'python3 my_gpt_app.py'
     # run the code on port 5001, MacOS uses port 5000 for its own service :(
     app.run(debug=True,port=5001)
