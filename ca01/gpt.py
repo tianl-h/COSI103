@@ -26,7 +26,7 @@ class GPT():
         ''' store the apikey in an instance variable '''
         self.apikey=apikey
         # Set up the OpenAI API client
-        openai.api_key = apikey #os.environ.get('APIKEY')
+        openai.api_key = apikey
 
         # Set up the model and prompt
         self.model_engine = "text-davinci-003"
@@ -45,9 +45,8 @@ class GPT():
         response = completion.choices[0].text
         return response
 
-
 if __name__=='__main__':
-    '''
+    '''// run bash secret.sh 'python3 gpt.py'
     '''
     import os
     g = GPT(os.environ.get("APIKEY"))
