@@ -50,11 +50,14 @@ class GPT():
         prompt = "Refactor the following Python program so that all functions have fewer than 5 lines of code:\n\n" + code
         return self.getResponse(prompt)
 
-    # created by Tianling Hou
-    def getString(self, text):
+        # created by Tianling Hou
+    def get_tech_chef_challenge(self, text):
         ''' Generate a GPT response with a given prompt '''
-        prompt = "Write a Python function that takes a string as input and returns the first 5 characters of the string. Then, provide an implementation of this function that meets the following criteria: \n\n"
-        '''eg. text:give some input and output as examples'''
+        prompt = "If software development was a cooking show, what kind of ingredients would each programming language bring to the table?"
+        '''eg. text: Requirements:
+            Choose at least 5 programming languages
+            For each language, describe a food ingredient that represents its characteristics
+            Bonus points for including cooking techniques and a celebrity chef host'''
         full_prompt = prompt + text
         return self.getResponse(full_prompt)
 
@@ -97,16 +100,18 @@ if __name__=='__main__':
     print("And yet another one.")'''
     # response = g.get_refactor(code)
     # print(response)
-
-    # the prompt for getString()
     
-    text = "give some input and output as examples"
+    text = "Requirements: Choose at least 5 programming languages; For each language, describe a food ingredient that represents its characteristics; Bonus points for including cooking techniques and a celebrity chef host"
     text1 = "give an output as examples"
     text_leetcode = "5"
     text_joke = "give one input and output as an example"
-    response = g.getString(text)
+    # the prompt for get_tech_chef_challenge()
+    response = g.get_tech_chef_challenge(text)
+    # the prompt for getPoem()
     response_poem = g.getPoem(text1)
+    # the prompt for get_leetcode_questions()
     response_leetcode = g.get_leetcode_questions(text_leetcode)
+    # the prompt for getJoke()
     response_joke =g.getJoke(text_joke)
 
     print("\nString response:\n")
