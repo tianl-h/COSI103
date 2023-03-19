@@ -64,7 +64,14 @@ class GPT():
         prompt = "Write a poem about coding. I want the audience to know that I love coding and Python programming is my best friend"
         full_prompt = prompt + text
         return self.getResponse(full_prompt)
-    
+
+        # created by Feifan He
+    def get_leetcode_questions(self, text):
+        '''Randomly choose desired number of LeetCode questions for practice.'''
+        prompt = "Give me some LeetCode questions for practice today, and the number of questions I will do today is: "
+        full_prompt = prompt + text
+        return self.getResponse(full_prompt)
+
       #created by Yingshan Hu
     def getJoke(self, topic):
         ''' Generate a GPT response for a joke about a given topic/prompt '''
@@ -93,11 +100,16 @@ if __name__=='__main__':
     
     text = "give some input and output as examples"
     text1 = "give an output as examples"
+    text_leetcode = "5"
     response = g.getString(text)
     response_poem = g.getPoem(text1)
+    response_leetcode = g.get_leetcode_questions(text_leetcode)
 
     print("String response:")
     print(response)
 
     print("Poem response:")
-    print(response_poem)   
+    print(response_poem)
+
+    print("LeetCode response:")
+    print(response_leetcode)

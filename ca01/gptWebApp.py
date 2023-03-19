@@ -23,6 +23,7 @@ from gpt import GPT
 import os
 
 app = Flask(__name__)
+
 gptAPI = GPT(os.environ.get('APIKEY'))
 
 # Set the secret key to some random bytes. Keep this really secret!
@@ -34,12 +35,18 @@ def index():
     print('processing / route')
     return f'''
         <h1>GPT Demo</h1>
-        <a href="{url_for('gptdemo')}">Ask questions to GPT</a>
+        <a href="{url_for('gptdemo')}">Ask questions to GPT</a><br>
+        <a href="{url_for('aboutTianling')}">An about page for Tianling</a><br>
+        <a href="{url_for('aboutBing')}">An about page for Bing</a><br>
+        <a href="{url_for('aboutFeifan')}">An about page for Feifan</a><br>
+        <a href="{url_for('aboutYingshan')}">An about page for Yingshan</a><br>
+        <a href="{url_for('team')}">Team Page</a><br>
+        <a href="{url_for('gptdemoFeifan')}">Feifan's demo</a><br>
     '''
 
 @app.route('/gptdemo', methods=['GET', 'POST'])
 def gptdemo():
-    ''' handle a get request by sending a form 
+    ''' handle a get request by sending a form
         and a post request by returning the GPT response
     '''
     if request.method == 'POST':
@@ -65,14 +72,63 @@ def gptdemo():
         </form>
         '''
 
-@app.route('/about')
-def about():
+@app.route('/aboutTianling')
+def aboutTianling():
+    return "<h1>The program is about Tianling</h1>"
+
+@app.route('/aboutBing')
+def aboutBing():
     return "<h1>The program is about....</h1>"
-    
+
+@app.route('/aboutFeifan')
+def aboutFeifan():
+    return "<h1>The program get_leetcode_questions is for randomly generating the desired number of LeetCode questions for practice.</h1>"
+
+@app.route('/aboutYingshan')
+def aboutYingshan():
+    return "<h1>The program is about....</h1>"
+
 @app.route('/team')
 def team():
-    return "<h1>About out team....</h1>"    
+    return '''
+    <h1>About our team :)</h1>
+    <h2>Tianling Hou</h2>
+    <p></p>
+    <h2>Bing Han</h2>
+    <p></p>
+    <h2>Feifan He</h2>
+    <p>I'm an MS4 student at Brandeis University with a passion for longboarding and a cute hamster named Tater Tots. I'm all about creating good vibes and keeping the team motivated. </p>
+    <h2>Yingshan Hu</h2>
+    <p></p>
+    '''
 
+@app.route('/gptdemoFeifan', methods=['GET', 'POST'])
+def gptdemoFeifan():
+    ''' handle a get request by sending a form
+        and a post request by returning the GPT response
+    '''
+    if request.method == 'POST':
+        prompt = request.form['prompt']
+        answer = gptAPI.get_leetcode_questions(prompt)
+        return f'''
+        <h1>GPT Demo</h1>
+        <pre style="bgcolor:yellow">{prompt}</pre>
+        <hr>
+        Here is the answer in text mode:
+        <div style="border:thin solid black">{answer}</div>
+        Here is the answer in "pre" mode:
+        <pre style="border:thin solid black">{answer}</pre>
+        <a href={url_for('gptdemoFeifan')}> make another query</a>
+        '''
+    else:
+        return '''
+        <h1>Feifan's Demo</h1>
+        Enter the number of LeetCode questions to generate:
+        <form method="post">
+            <textarea name="prompt"></textarea>
+            <p><input type=submit value="get response">
+        </form>
+        '''
 
 if __name__=='__main__':
     # to run the program: bash secretINITIAL.sh 'python3 gptWebApp.py'
