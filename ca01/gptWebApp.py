@@ -160,8 +160,9 @@ def gptdemoBing():
             <p><input type=submit value="get response">
         </form>
         '''
-    
-    def gptdemoYingshan():
+
+@app.route('/gptdemoYingshan', methods=['GET', 'POST'])   
+def gptdemoYingshan():
     ''' handle a get request by sending a form
         and a post request by returning the GPT response
     '''
@@ -169,7 +170,7 @@ def gptdemoBing():
         prompt = request.form['prompt']
         answer = gptAPI.getJoke(prompt)
         return f'''
-        <h1>GPT Demo</h1>
+        <h1>Yingshan Demo</h1>
         <pre style="bgcolor:#74b3ce">{prompt}</pre>
         <hr>
         Here is the answer in text mode:
