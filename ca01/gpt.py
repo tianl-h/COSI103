@@ -61,7 +61,7 @@ class GPT():
       # created by Bing Han
     def getPoem(self, text):  
         ''' Generate a GPT response with a given prompt '''
-        prompt = "Write a poem about coding. I want the audience to know that I love coding and Python programming is my best friend"
+        prompt = "Write a poem about coding. I want the audience to know that I love coding and my favorite programming language is: "
         full_prompt = prompt + text
         return self.getResponse(full_prompt)
 
