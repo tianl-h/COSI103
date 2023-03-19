@@ -182,7 +182,7 @@ def gptdemoYingshan():
     else:
         return '''
         <h1>Yingshan's Demo</h1>
-        Tell me about your favorite joke:
+        Good Day! I will be generating a joke for you, so please let me know one of your interested topics:
         <form method="post">
             <textarea name="prompt"></textarea>
             <p><input type=submit value="get response">
