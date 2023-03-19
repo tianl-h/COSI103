@@ -73,10 +73,12 @@ class GPT():
         return self.getResponse(full_prompt)
 
       #created by Yingshan Hu
-    def getJoke(self, topic):
+    def getJoke(self, text):
         ''' Generate a GPT response for a joke about a given topic/prompt '''
-        prompt = "Tell me a joke about " + topic
+        prompt = "Tell me a joke about the given topic"
+        full_prompt = prompt + text
         return self.getResponse(prompt)
+        return self.getResponse(full_prompt)
 
 if __name__=='__main__':
     '''// run bash secret.sh 'python3 gpt.py'
@@ -104,6 +106,7 @@ if __name__=='__main__':
     response = g.getString(text)
     response_poem = g.getPoem(text1)
     response_leetcode = g.get_leetcode_questions(text_leetcode)
+    response_joke =g.getJoke(text_joke)
 
     print("String response:")
     print(response)
@@ -113,3 +116,6 @@ if __name__=='__main__':
 
     print("LeetCode response:")
     print(response_leetcode)
+    
+    print("Joke response:")
+    print(response_joke)
