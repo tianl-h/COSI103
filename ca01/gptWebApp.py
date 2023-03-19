@@ -87,7 +87,7 @@ def aboutFeifan():
 
 @app.route('/aboutYingshan')
 def aboutYingshan():
-    return "<h1>The program is about....</h1>"
+    return "<h1>The program getJoke generates a GPT response based on the given topic/prompts</h1>"
 
 @app.route('/team')
 def team():
@@ -100,7 +100,8 @@ def team():
     <h2>Feifan He</h2>
     <p>I'm an MS4 student at Brandeis University with a passion for longboarding and a cute hamster named Tater Tots. I'm all about creating good vibes and keeping the team motivated. </p>
     <h2>Yingshan Hu</h2>
-    <p></p>
+    <p>I am a MS4 student at Brandeis University.<br> I am also a proud owner of a cute rag doll cat who keeps me company while I study and work on my projects.
+    In my free time, I love to travel and explore new places, but when I'm not traveling, I enjoy building webpages and developing my coding skills.As for my role, I love collaborating with my teammates and I help optimize our work’s performance. </p>
     '''
 
 @app.route('/gptdemoFeifan', methods=['GET', 'POST'])
