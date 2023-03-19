@@ -63,7 +63,13 @@ class GPT():
         ''' Generate a GPT response with a given prompt '''
         prompt = "Write a poem about coding. I want the audience to know that I love coding and Python programming is my best friend"
         full_prompt = prompt + text
-        return self.getResponse(full_prompt)    
+        return self.getResponse(full_prompt)
+    
+      #created by Yingshan Hu
+    def getJoke(self, topic):
+        ''' Generate a GPT response for a joke about a given topic/prompt '''
+        prompt = "Tell me a joke about " + topic
+        return self.getResponse(prompt)
 
 if __name__=='__main__':
     '''// run bash secret.sh 'python3 gpt.py'
