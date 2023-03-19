@@ -86,9 +86,9 @@ if __name__=='__main__':
     # the prompt for getString()
     
     text = "give some input and output as examples"
-
+    text1 = "give an output as examples"
     response = g.getString(text)
-    response_poem = g.getPoem(text)
+    response_poem = g.getPoem(text1)
 
     print("String response:")
     print(response)
