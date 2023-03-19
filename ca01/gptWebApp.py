@@ -87,7 +87,7 @@ def aboutFeifan():
 
 @app.route('/aboutYingshan')
 def aboutYingshan():
-    return "<h1>The program is about....</h1>"
+    return "<h1>The program getJoke generates a GPT response for a joke about a given topic/prompt</h1>"
 
 @app.route('/team')
 def team():
