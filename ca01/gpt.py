@@ -103,19 +103,20 @@ if __name__=='__main__':
     text = "give some input and output as examples"
     text1 = "give an output as examples"
     text_leetcode = "5"
+    text_joke = "give one input and output as an example"
     response = g.getString(text)
     response_poem = g.getPoem(text1)
     response_leetcode = g.get_leetcode_questions(text_leetcode)
     response_joke =g.getJoke(text_joke)
 
-    print("String response:")
+    print("\nString response:\n")
     print(response)
 
-    print("Poem response:")
+    print("\nPoem response:\n")
     print(response_poem)
 
-    print("LeetCode response:")
+    print("\nLeetCode response:\n")
     print(response_leetcode)
     
-    print("Joke response:")
+    print("\nJoke response:\n")
     print(response_joke)
