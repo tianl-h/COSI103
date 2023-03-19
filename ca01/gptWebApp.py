@@ -42,6 +42,7 @@ def index():
         <a href="{url_for('aboutYingshan')}">An about page for Yingshan</a><br>
         <a href="{url_for('team')}">Team Page</a><br>
         <a href="{url_for('gptdemoFeifan')}">Feifan's demo</a><br>
+         <a href="{url_for('gptdemoBing')}">Bing's demo</a><br>
     '''
 
 @app.route('/gptdemo', methods=['GET', 'POST'])
@@ -78,7 +79,7 @@ def aboutTianling():
 
 @app.route('/aboutBing')
 def aboutBing():
-    return "<h1>The program is about....</h1>"
+    return "<h1>The program getPoem generates a poem about the coding and your favorite programming language </h1>"
 
 @app.route('/aboutFeifan')
 def aboutFeifan():
@@ -95,7 +96,7 @@ def team():
     <h2>Tianling Hou</h2>
     <p></p>
     <h2>Bing Han</h2>
-    <p></p>
+    <p><I'm an MS4 student at Brandeis University. I have a little yorkie Luna. My role is to make sure our webpage runs properly./p>
     <h2>Feifan He</h2>
     <p>I'm an MS4 student at Brandeis University with a passion for longboarding and a cute hamster named Tater Tots. I'm all about creating good vibes and keeping the team motivated. </p>
     <h2>Yingshan Hu</h2>
@@ -130,6 +131,33 @@ def gptdemoFeifan():
         </form>
         '''
 
+@app.route('/gptdemoBing', methods=['GET', 'POST'])
+def gptdemoBing():
+    ''' handle a get request by sending a form
+        and a post request by returning the GPT response
+    '''
+    if request.method == 'POST':
+        prompt = request.form['prompt']
+        answer = gptAPI.getPoem(prompt)
+        return f'''
+        <h1>GPT Demo</h1>
+        <pre style="bgcolor:pink">{prompt}</pre>
+        <hr>
+        Here is the answer in text mode:
+        <div style="border:thin solid black">{answer}</div>
+        Here is the answer in "pre" mode:
+        <pre style="border:thin solid black">{answer}</pre>
+        <a href={url_for('gptdemoBing')}> make another query</a>
+        '''
+    else:
+        return '''
+        <h1>Bing's Demo</h1>
+        Enter your favorite programming language:
+        <form method="post">
+            <textarea name="prompt"></textarea>
+            <p><input type=submit value="get response">
+        </form>
+        '''
 if __name__=='__main__':
     # to run the program: bash secretINITIAL.sh 'python3 gptWebApp.py'
     # run the code on port 5001, MacOS uses port 5000 for its own service :(
