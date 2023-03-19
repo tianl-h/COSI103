@@ -154,7 +154,7 @@ def team():
     return '''
     <h1>About our team :)</h1>
     <h2>Tianling Hou</h2>
-    <p>Hello, my name is Tianling Hou and I am an MS4 student at Brandeis University. I have a few passions in life, including snowboarding, eating delicious food, and traveling. I find it exhilarating to explore new places, meet new people, and learn about different cultures. When I'm not hitting the slopes or trying out new restaurants, I enjoy working with my team members to help develop and improve our projects. I am a strong team player and I believe in working collaboratively to achieve our goals. I am always looking for ways to contribute to the team and make our projects the best they can be.</p>
+    <p>Hello, my name is Tianling Hou and I am an MS4 student at Brandeis University. I have a few passions in life, including snowboarding, eating delicious food, and traveling. When I'm not hitting the slopes or trying out new restaurants, I enjoy working with my team members to help develop and improve our projects. I am always looking for ways to contribute to the team and make our projects the best they can be.</p>
     <h2>Bing Han</h2>
     <p>I'm an MS4 student at Brandeis University. I have a little yorkie Luna. My role is to make sure our webpage runs properly.</p>
     <h2>Feifan He</h2>
