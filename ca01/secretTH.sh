@@ -1,2 +1,0 @@
-export APIKEY="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"
-$1
