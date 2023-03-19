@@ -75,6 +75,6 @@ def team():
 
 
 if __name__=='__main__':
-    # to run the program: bash secretINITIAL.sh 'python3 my_gpt_app.py'
+    # to run the program: bash secretINITIAL.sh 'python3 gptWebApp.py'
     # run the code on port 5001, MacOS uses port 5000 for its own service :(
     app.run(debug=True,port=5001)
