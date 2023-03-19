@@ -42,7 +42,8 @@ def index():
         <a href="{url_for('aboutYingshan')}">An about page for Yingshan</a><br>
         <a href="{url_for('team')}">Team Page</a><br>
         <a href="{url_for('gptdemoFeifan')}">Feifan's demo</a><br>
-         <a href="{url_for('gptdemoBing')}">Bing's demo</a><br>
+        <a href="{url_for('gptdemoBing')}">Bing's demo</a><br>
+        <a href="{url_for('gptdemoYingshan')}">Yingshan's demo</a><br>
     '''
 
 @app.route('/gptdemo', methods=['GET', 'POST'])
@@ -159,6 +160,34 @@ def gptdemoBing():
             <p><input type=submit value="get response">
         </form>
         '''
+    
+    def gptdemoYingshan():
+    ''' handle a get request by sending a form
+        and a post request by returning the GPT response
+    '''
+    if request.method == 'POST':
+        prompt = request.form['prompt']
+        answer = gptAPI.getJoke(prompt)
+        return f'''
+        <h1>GPT Demo</h1>
+        <pre style="bgcolor:#74b3ce">{prompt}</pre>
+        <hr>
+        Here is the answer in text mode:
+        <div style="border:thin solid black">{answer}</div>
+        Here is the answer in "pre" mode:
+        <pre style="border:thin solid black">{answer}</pre>
+        <a href={url_for('gptdemoYingshan')}> make another query</a>
+        '''
+    else:
+        return '''
+        <h1>Yingshan's Demo</h1>
+        Tell me about your favorite joke:
+        <form method="post">
+            <textarea name="prompt"></textarea>
+            <p><input type=submit value="get response">
+        </form>
+        '''
+    
 if __name__=='__main__':
     # to run the program: bash secretINITIAL.sh 'python3 gptWebApp.py'
     # run the code on port 5001, MacOS uses port 5000 for its own service :(
