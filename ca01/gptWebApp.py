@@ -99,6 +99,7 @@ def index():
                     <a href="{url_for('gptdemoFeifan')}">Feifan's demo</a>
                     <a href="{url_for('gptdemoBing')}">Bing's demo</a>
                     <a href="{url_for('gptdemoYingshan')}">Yingshan's demo</a>
+                    <a href="{url_for('gptdemoTianling')}">Tianling's demo</a>
                 </div>
             </body>
         </html>
@@ -134,7 +135,7 @@ def gptdemo():
 
 @app.route('/aboutTianling')
 def aboutTianling():
-    return "<h1>The program is about Tianling</h1>"
+    return "<h1>The program get_tech_chef_challenge generates a GTP response based on the prompt, \"If software development was a cooking show, what kind of ingredients would each programming language bring to the table?\", and the requirements provided in the text parameter.</h1>"
 
 @app.route('/aboutBing')
 def aboutBing():
@@ -153,7 +154,7 @@ def team():
     return '''
     <h1>About our team :)</h1>
     <h2>Tianling Hou</h2>
-    <p></p>
+    <p>Hello, my name is Tianling Hou and I am an MS4 student at Brandeis University. I have a few passions in life, including snowboarding, eating delicious food, and traveling. I find it exhilarating to explore new places, meet new people, and learn about different cultures. When I'm not hitting the slopes or trying out new restaurants, I enjoy working with my team members to help develop and improve our projects. I am a strong team player and I believe in working collaboratively to achieve our goals. I am always looking for ways to contribute to the team and make our projects the best they can be.</p>
     <h2>Bing Han</h2>
     <p>I'm an MS4 student at Brandeis University. I have a little yorkie Luna. My role is to make sure our webpage runs properly.</p>
     <h2>Feifan He</h2>
@@ -241,6 +242,34 @@ def gptdemoYingshan():
         return '''
         <h1>Yingshan's Demo</h1>
         Good Day! I will be generating a joke for you, so please let me know one of your interested topics:
+        <form method="post">
+            <textarea name="prompt"></textarea>
+            <p><input type=submit value="get response">
+        </form>
+        '''
+        
+@app.route('/gptdemoTianling', methods=['GET', 'POST'])
+def gptdemoTianling():
+    ''' handle a get request by sending a form
+        and a post request by returning the GPT response
+    '''
+    if request.method == 'POST':
+        prompt = request.form['prompt']
+        answer = gptAPI.get_tech_chef_challenge(prompt)
+        return f'''
+        <h1>GPT Demo</h1>
+        <pre style="bgcolor:yellow">{prompt}</pre>
+        <hr>
+        Here is the answer in text mode:
+        <div style="border:thin solid black">{answer}</div>
+        Here is the answer in "pre" mode:
+        <pre style="border:thin solid black">{answer}</pre>
+        <a href={url_for('gptdemoTianling')}> make another query</a>
+        '''
+    else:
+        return '''
+        <h1>Tianling's Demo</h1>
+        Are you curious about what ingredients each programming language would bring to the table if software development was a cooking show? If so, you're in luck! Simply enter the programming languages you'd like to learn about, as well as any additional requirements or details you're interested in, and we'll generate a GPT response that's sure to satisfy your curiosity.
         <form method="post">
             <textarea name="prompt"></textarea>
             <p><input type=submit value="get response">

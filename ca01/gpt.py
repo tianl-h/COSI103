@@ -53,11 +53,7 @@ class GPT():
         # created by Tianling Hou
     def get_tech_chef_challenge(self, text):
         ''' Generate a GPT response with a given prompt '''
-        prompt = "If software development was a cooking show, what kind of ingredients would each programming language bring to the table?"
-        '''eg. text: Requirements:
-            Choose at least 5 programming languages
-            For each language, describe a food ingredient that represents its characteristics
-            Bonus points for including cooking techniques and a celebrity chef host'''
+        prompt = "If software development was a cooking show, what kind of ingredients would each programming language bring to the table? For each language, describe a food ingredient that represents its characteristics; Bonus points for including cooking techniques and a celebrity chef host."
         full_prompt = prompt + text
         return self.getResponse(full_prompt)
 
