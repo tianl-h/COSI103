@@ -97,7 +97,7 @@ if __name__=='__main__':
     # response = g.get_refactor(code)
     # print(response)
     
-    text = "Requirements: Choose at least 5 programming languages; For each language, describe a food ingredient that represents its characteristics; Bonus points for including cooking techniques and a celebrity chef host"
+    text = "Requirements: Choose 2 programming languages; For each language, describe a food ingredient that represents its characteristics; Bonus points for including cooking techniques and a celebrity chef host"
     text1 = "give an output as examples"
     text_leetcode = "5"
     text_joke = "give one input and output as an example"
