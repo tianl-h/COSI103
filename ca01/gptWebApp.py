@@ -34,16 +34,74 @@ def index():
     ''' display a link to the general query page '''
     print('processing / route')
     return f'''
-        <h1>GPT Demo</h1>
-        <a href="{url_for('gptdemo')}">Ask questions to GPT</a><br>
-        <a href="{url_for('aboutTianling')}">An about page for Tianling</a><br>
-        <a href="{url_for('aboutBing')}">An about page for Bing</a><br>
-        <a href="{url_for('aboutFeifan')}">An about page for Feifan</a><br>
-        <a href="{url_for('aboutYingshan')}">An about page for Yingshan</a><br>
-        <a href="{url_for('team')}">Team Page</a><br>
-        <a href="{url_for('gptdemoFeifan')}">Feifan's demo</a><br>
-        <a href="{url_for('gptdemoBing')}">Bing's demo</a><br>
-        <a href="{url_for('gptdemoYingshan')}">Yingshan's demo</a><br>
+        <html>
+            <head>
+                <title>GPT Demo</title>
+                <style>
+                    /* Set global styles */
+                    * {{
+                        box-sizing: border-box;
+                    }}
+                    body {{
+                        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                        margin: 0;
+                        padding: 0;
+                        background-color: #F7F7F7;
+                    }}
+                    h1 {{
+                        font-size: 3rem;
+                        margin-top: 2rem;
+                        margin-bottom: 1.5rem;
+                        text-align: center;
+                        color: #2a9fd6;
+                    }}
+                    .links {{
+                        max-width: 600px;
+                        margin: 0 auto;
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        align-items: center;
+                    }}
+                    .links a {{
+                        display: block;
+                        padding: 20px;
+                        margin: 20px;
+                        text-align: center;
+                        text-decoration: none;
+                        font-size: 1.5rem;
+                        color: #2a2a2a;
+                        background-color: #FFFFFF;
+                        border-radius: 5px;
+                        box-shadow: 0px 3px 3px rgba(0,0,0,0.1);
+                        transition: all 0.2s ease-in-out;
+                    }}
+                    .links a:hover {{
+                        transform: translateY(-2px);
+                        box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+                    }}
+                    .links a:focus {{
+                        outline: none;
+                        background-color: #2a9fd6;
+                        color: #FFFFFF;
+                    }}
+                </style>
+            </head>
+            <body>
+                <h1>GPT Demo</h1>
+                <div class="links">
+                    <a href="{url_for('gptdemo')}">Ask questions to GPT</a>
+                    <a href="{url_for('aboutTianling')}">An about page for Tianling</a>
+                    <a href="{url_for('aboutBing')}">An about page for Bing</a>
+                    <a href="{url_for('aboutFeifan')}">An about page for Feifan</a>
+                    <a href="{url_for('aboutYingshan')}">An about page for Yingshan</a>
+                    <a href="{url_for('team')}">Team Page</a>
+                    <a href="{url_for('gptdemoFeifan')}">Feifan's demo</a>
+                    <a href="{url_for('gptdemoBing')}">Bing's demo</a>
+                    <a href="{url_for('gptdemoYingshan')}">Yingshan's demo</a>
+                </div>
+            </body>
+        </html>
     '''
 
 @app.route('/gptdemo', methods=['GET', 'POST'])
