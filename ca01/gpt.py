@@ -58,6 +58,13 @@ class GPT():
         full_prompt = prompt + text
         return self.getResponse(full_prompt)
 
+      # created by Bing Han
+    def getPoem(self, text):  
+        ''' Generate a GPT response with a given prompt '''
+        prompt = "Write a poem about coding. I want the audience to know that I love coding and Python programming is my best friend"
+        full_prompt = prompt + text
+        return self.getResponse(full_prompt)    
+
 if __name__=='__main__':
     '''// run bash secret.sh 'python3 gpt.py'
     '''
@@ -77,7 +84,14 @@ if __name__=='__main__':
     # print(response)
 
     # the prompt for getString()
+    
     text = "give some input and output as examples"
+
     response = g.getString(text)
+    response_poem = g.getPoem(text)
+
+    print("String response:")
     print(response)
 
+    print("Song response:")
+    print(response_poem)   
