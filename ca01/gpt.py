@@ -93,5 +93,5 @@ if __name__=='__main__':
     print("String response:")
     print(response)
 
-    print("Song response:")
+    print("Poem response:")
     print(response_poem)   
