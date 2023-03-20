@@ -76,7 +76,6 @@ class GPT():
         ''' Generate a GPT response for a joke about a given topic/prompt '''
         prompt = "Tell me a joke about the given topic"
         full_prompt = prompt + text
-        return self.getResponse(prompt)
         return self.getResponse(full_prompt)
 
 if __name__=='__main__':
