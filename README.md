@@ -1,6 +1,6 @@
 # COSI103
 
-a file with out tem work
+a file with out team work
 
 Team:
 Bing
